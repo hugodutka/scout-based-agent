@@ -1,9 +1,9 @@
 import { tool } from "ai";
 import * as blink from "blink";
 import { z } from "zod";
-import { type Message, type Options, Scout } from "@blink-sdk/scout-agent";
+import { type Message, Scout } from "@blink-sdk/scout-agent";
 
-export const agent = new blink.Agent<blink.WithUIOptions<Options, Message>>();
+export const agent = new blink.Agent<Message>();
 
 const scout = new Scout({
   agent,
