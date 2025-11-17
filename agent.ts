@@ -5,7 +5,7 @@ import { type Message, type Options, Scout } from "@blink-sdk/scout-agent";
 
 export const agent = new blink.Agent<blink.WithUIOptions<Options, Message>>();
 
-const core = new Scout({
+const scout = new Scout({
   agent,
   github: {
     appID: process.env.GITHUB_APP_ID,
@@ -27,16 +27,16 @@ const core = new Scout({
 agent.on("request", async (request) => {
   const url = new URL(request.url);
   if (url.pathname.startsWith("/slack")) {
-    return core.handleSlackWebhook(request);
+    return scout.handleSlackWebhook(request);
   }
   if (url.pathname.startsWith("/github")) {
-    return core.handleGitHubWebhook(request);
+    return scout.handleGitHubWebhook(request);
   }
   return new Response("Hey there!", { status: 200 });
 });
 
 agent.on("chat", async ({ id, messages }) => {
-  return core.streamStepResponse({
+  return scout.streamStepResponse({
     chatID: id,
     messages,
     model: "anthropic/claude-sonnet-4.5",
