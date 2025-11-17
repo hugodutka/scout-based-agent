@@ -1,0 +1,21 @@
+{
+  "name": "scout-based-agent",
+  "main": "agent.ts",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "blink dev",
+    "deploy": "blink deploy"
+  },
+  "devDependencies": {
+    "zod": "latest",
+    "ai": "latest",
+    "blink": "latest",
+    "esbuild": "latest",
+    "@types/node": "latest",
+    "typescript": "latest"
+  },
+  "dependencies": {
+    "@blink-sdk/scout-agent": "/home/hugodutka/dev/blink/packages/scout-agent/blink-sdk-scout-agent-0.0.1.tgz"
+  }
+}
